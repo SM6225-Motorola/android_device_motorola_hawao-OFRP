@@ -51,45 +51,30 @@ TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 # Fix for copying *.ko
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
-
 ##### TWRP Flags #####
 TW_THEME := portrait_hdpi
-
-# Include more languages than English
+RECOVERY_SDCARD_ON_DATA := true
+TARGET_RECOVERY_QCOM_RTC_FIX := true
+TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXTRA_LANGUAGES := true
-
-# Brightness
+TW_INCLUDE_NTFS_3G := true
+# TW_USE_TOOLBOX := true
+TW_INCLUDE_RESETPROP := true
+# TW_INCLUDE_REPACKTOOLS := true
+# TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_BRIGHTNESS_PATH := /sys/class/backlight/panel0-backlight/brightness
 TW_DEFAULT_BRIGHTNESS := 1800
 TW_MAX_BRIGHTNESS := 3514
-
-# Add support of able to wake with touch after sleep
+TWRP_INCLUDE_LOGCAT := true
+TARGET_USES_LOGD := true
+TARGET_USES_MKE2FS := true
 TW_NO_SCREEN_BLANK := true
+TW_EXCLUDE_APEX := true
+TW_FRAMERATE := 90
+TW_USE_LEGACY_BATTERY_SERVICES := true
 
 # Remove vibration support
 TW_NO_HAPTICS := true
-
-# Battery
-# https://gerrit.twrp.me/c/android_bootable_recovery/+/6945
-TW_USE_LEGACY_BATTERY_SERVICES := true
-
-# Time
-TARGET_RECOVERY_QCOM_RTC_FIX := true
-
-# Statusbar icons flags
-TW_STATUS_ICONS_ALIGN := center
-TW_CUSTOM_CLOCK_POS := 50
-TW_CUSTOM_CPU_POS := 280
-TW_CUSTOM_BATTERY_POS := 790
-
-# Use our own USB config
-TW_EXCLUDE_DEFAULT_USB_INIT := true
-
-# For mounting NTFS
-TW_INCLUDE_NTFS_3G := true
-
-# Use mke2fs for formatting ext4 partitions
-TARGET_USES_MKE2FS := true
 
 # Kernel module loading for touch, battery etc
 TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/recovery/root/vendor/lib/modules/1.1)\")
@@ -97,16 +82,17 @@ TW_LOAD_VENDOR_BOOT_MODULES := true
 
 # Include decryption support
 TW_INCLUDE_CRYPTO := true
-RECOVERY_SDCARD_ON_DATA := true
 # include below when enabling decryption
 # without these it may stuck on TWRP splash
-TARGET_RECOVERY_DEVICE_MODULES += libion
-RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/libion.so
-
-# Don't mount apex files (no need for now)
-TW_EXCLUDE_APEX := true
-
-# Debuging flags
-TWRP_INCLUDE_LOGCAT := true
-TARGET_USES_LOGD := true
-TW_INCLUDE_RESETPROP := true
+TARGET_RECOVERY_DEVICE_MODULES += \
+	libion \
+	libdisplayconfig.qti \
+	libxml2\
+	vendor.display.config@1.0 \
+	vendor.display.config@2.0
+RECOVERY_LIBRARY_SOURCE_FILES += \
+	$(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so \
+    $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/libdisplayconfig.qti.so \
+    $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so \
+    $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so
