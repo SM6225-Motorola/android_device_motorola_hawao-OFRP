@@ -1,3 +1,5 @@
+import /init.recovery.qcom_decrypt.rc
+
 on init
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
@@ -7,12 +9,6 @@ on post-fs
 
 on boot
     start health-hal-2-1
-
-on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
-    install_keyring
-
-on property:ro.crypto.state=encrypted && property:hwservicemanager.ready=true
-    start qseecomd
 
 on property:vendor.sys.listeners.registered=true
     start gatekeeper-1-0-qti

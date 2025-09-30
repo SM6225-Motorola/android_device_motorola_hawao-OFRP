@@ -80,10 +80,17 @@ TW_NO_HAPTICS := true
 TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/recovery/root/vendor/lib/modules/1.1)\")
 TW_LOAD_VENDOR_BOOT_MODULES := true
 
-# Include decryption support
+# Crypto
 TW_INCLUDE_CRYPTO := true
-# include below when enabling decryption
-# without these it may stuck on TWRP splash
+TW_INCLUDE_CRYPTO_FBE := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
+PLATFORM_SECURITY_PATCH := 2099-12-31
+VENDOR_SECURITY_PATCH := 2099-12-31
+PLATFORM_VERSION := 99.87.36
+PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
+BOARD_USES_QCOM_FBE_DECRYPTION := true
+
+# Libs
 TARGET_RECOVERY_DEVICE_MODULES += \
 	libion \
 	libdisplayconfig.qti \
