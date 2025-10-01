@@ -20,6 +20,7 @@
 /metadata              ext4      /dev/block/bootdevice/by-name/metadata           flags=backup=1;display="Metadata"
 /logo                  emmc      /dev/block/bootdevice/by-name/logo               flags=backup=1;display="Logo";slotselect
 /keymaster             emmc      /dev/block/bootdevice/by-name/keymaster          flags=slotselect
+/frp                   emmc      /dev/block/bootdevice/by-name/frp                flags=display="FRP";wipeingui
 
 # Removable storage (MicroSD && USB-OTG)
 /external_sd           auto      /dev/block/mmcblk0p1    /dev/block/mmcblk0p1       flags=display="Micro SD Card";storage;wipeingui;removable
@@ -30,3 +31,6 @@
 /vendor_image          emmc      /dev/block/bootdevice/by-name/vendor           flags=backup=1;display="Vendor image";flashimg=1
 /product_image         emmc      /dev/block/bootdevice/by-name/product          flags=backup=1;display="Product image";flashimg=1
 /system_ext_image      emmc      /dev/block/bootdevice/by-name/system_ext       flags=backup=1;display="System_ext image";flashimg=1
+
+# GSI
+/system_image   emmc    /dev/block/mapper/system					    flags=slotselect
