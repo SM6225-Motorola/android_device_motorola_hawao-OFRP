@@ -1,1 +1,1 @@
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/twrp_rhode.mk
+PRODUCT_MAKEFILES := $(LOCAL_DIR)/twrp_hawao.mk

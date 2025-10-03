@@ -5,10 +5,10 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := rhode
+PRODUCT_DEVICE := hawao
 PRODUCT_NAME := twrp_$(PRODUCT_DEVICE)
 PRODUCT_BRAND := motorola
-PRODUCT_MODEL := moto g52
+PRODUCT_MODEL := moto g42
 PRODUCT_MANUFACTURER := motorola
 
 # Default device path for tree

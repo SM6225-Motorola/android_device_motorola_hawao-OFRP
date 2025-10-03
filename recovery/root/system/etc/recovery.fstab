@@ -1,4 +1,4 @@
-# Recovery Fstab For Moto G52
+# Recovery Fstab For Moto G42
 # By @ZetLink Thanks @Samw662
 
 #device         mount point      fstype        [device2] [length=]

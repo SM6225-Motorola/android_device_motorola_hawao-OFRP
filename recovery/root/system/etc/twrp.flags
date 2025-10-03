@@ -1,4 +1,4 @@
-# TWRP Fstab - For Moto G52
+# TWRP Fstab - For Moto G42
 # Thanks @Samw662
 
 # <mount_point>      <fstype>  <device>        <device2>                  <flags>
