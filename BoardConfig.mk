@@ -71,6 +71,7 @@ TW_FRAMERATE := 60
 TW_USE_LEGACY_BATTERY_SERVICES := true
 TW_ALLOW_REWRITE_SUPER_METADATA := true
 TW_INCLUDE_LPDUMP := true
+TW_HAS_EDL_MODE := true
 
 # Remove vibration support
 TW_NO_HAPTICS := true
