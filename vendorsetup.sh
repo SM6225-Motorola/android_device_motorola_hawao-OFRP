@@ -7,11 +7,14 @@ if [ "$BUILD_OFOX" = "true" ]; then
     # If you building OrangeFox, then do "export BUILD_OFOX=true"
     # See orangefox_build_vars.txt in fox_12.1/vendor/recovery/ for full list of OrangeFox variables
 
-    echo -e "[✨] Starting to add OrangeFox-hawao variables..."
+    echo -e "[✨] Starting to add OrangeFox variables..."
 
     # About
     export OF_MAINTAINER=ZetLink
     export FOX_MAINTAINER_PATCH_VERSION=$(date +%y%m%d)
+
+    # Vanilla build
+    export FOX_VANILLA_BUILD=1
 
     # A/B
     export FOX_VIRTUAL_AB_DEVICE=1
@@ -30,6 +33,9 @@ if [ "$BUILD_OFOX" = "true" ]; then
 
     # Dynamic full size
     export OF_DYNAMIC_FULL_SIZE=7583301632
+
+    # Flashlight (useless?)
+    export OF_FLASHLIGHT_ENABLE=1
 
     # UI display settings
     export OF_SCREEN_H=2400
