@@ -1,7 +1,5 @@
 # Platform
 TARGET_BOARD_PLATFORM := bengal
-TARGET_NO_BOOTLOADER := true
-TARGET_USES_UEFI := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := $(PRODUCT_DEVICE)
@@ -21,7 +19,6 @@ TARGET_2ND_CPU_VARIANT := generic
 # A/B device flags
 TARGET_NO_RECOVERY := true
 BOARD_USES_RECOVERY_AS_BOOT := true
-BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 
 # bootimg configuration
 BOARD_BOOT_HEADER_VERSION := 3
@@ -77,7 +74,7 @@ TW_INCLUDE_LPDUMP := true
 TW_HAS_EDL_MODE := true
 
 # Remove vibration support
-# TW_NO_HAPTICS := true
+TW_NO_HAPTICS := true
 
 # Kernel module loading for touch, battery etc
 TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/recovery/root/vendor/lib/modules/1.1)\")
